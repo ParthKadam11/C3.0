@@ -1,0 +1,10 @@
+var a=20;
+console.log(a);
+let b =30;
+b= 30;
+console.log(b);
+let king="parth";
+console.log(king);
+let array=[1,2,3,4,5];
+console.log(array);
+console.log(array[3]);
