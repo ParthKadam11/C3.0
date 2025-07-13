@@ -1,0 +1,12 @@
+#title{
+    display: flex;
+    justify-content: center;
+}
+#add_task_area{
+    display: flex;
+    justify-content: center;
+}
+.tasks{
+    display: flex;
+    justify-content: center;
+}

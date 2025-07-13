@@ -1,0 +1,26 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    
+}
+#dock{
+    margin: 35px;
+    display: flex;
+    flex-direction: row;
+    border: 0.1px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 7px;
+    background-color: black;
+    box-shadow: 0px 0px 4px black;
+}
+.button{
+    font-size:small;
+    background-color: black;
+    font-family:Arial, Helvetica, sans-serif;
+    color: white;
+    border-radius: 7px;
+    border-style: solid;
+    padding: 8px;
+    margin: 8px;}
