@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Website</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+<script>
+    async function signup(){
+        const username=document.getElementById("A1").value;
+        const password=document.getElementById("A2").value;
+
+        await axios.post("http://localhost:3000/signup",{
+            username:username,
+            password:password
+        })
+        alert("You Are Signed UP!!")
+    }
+    async function signin(){
+        const username=document.getElementById("B1").value;
+        const password=document.getElementById("B2").value;
+
+        const response =await axios.post("http://localhost:3000/signin",{
+            username:username,
+            password:password
+        })
+        localStorage.setItem("token", response.data.token)
+        alert("You Are Signed In!!")
+        checkauth();
+    }
+    async function getinfo(){
+
+        try{
+            const response=await axios.get("http://localhost:3000/me",{
+            headers:{
+                token:localStorage.getItem("token")
+            }
+        })
+        document.getElementById("information").innerHTML="Username = "+response.data.username+" Password = "+response.data.password
+        return true         
+        }
+        catch(err){
+            console.log("Not logged in or invalid token")
+            return false
+        }
+    }
+    async function checkauth(){
+        const valid =await getinfo()
+        if(valid){
+            document.getElementById("AuthSection").style.display="none";
+            document.getElementById("UserSection").style.display="block";
+        }else{
+            document.getElementById("AuthSection").style.display="block";
+            document.getElementById("UserSection").style.display="none";
+        }
+    }
+    function logout(){
+        localStorage.removeItem("token")
+        checkauth()
+    }
+    checkauth();
+</script>
+<body>
+    <h1>Authentication</h1>
+    <div id="AuthSection">
+        <div>
+            SignUp
+            <input type="text" name="Username" id="A1" placeholder="Username">
+            <input type="password" name="Password" id="A2" placeholder="Password">
+            <button onclick="signup()">Submit</button>
+        </div>
+        <br>
+        <div>
+            SignIn
+            <input type="text" name="Username" id="B1" placeholder="Username">
+            <input type="password" name="Password" id="B2"  placeholder="Password">
+            <button onclick="signin()">Submit</button>
+        </div>
+        <br>
+    </div>    
+    <div id="UserSection" style="display: none;">
+        <div >User Information:
+            <div id="information"></div>
+        </div> <br>
+        <button onclick="logout()">Log Out</button>
+    </div>    
+</body>
+</html>
+
+
+
