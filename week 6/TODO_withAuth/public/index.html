@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+<body>
+    <script src="script.js"></script>
+    <div class="title">
+        <h1>To-Do List</h1>
+    </div>
+    <div id="AuthSection">
+        <h1  class="auth">Authentication</h1>
+            <div class="title">Create Account</div><br>
+            <div class="auth">
+                
+                <input type="text" name="Username" id="A1" placeholder="Username">
+                <input type="password" name="Password" id="A2" placeholder="Password">
+                <button onclick="signup()">Submit</button>
+            </div>
+            <br>
+            <div class="title">Login</div><br>
+            <div class="auth">    
+                <input type="text" name="Username" id="B1" placeholder="Username">
+                <input type="password" name="Password" id="B2"  placeholder="Password">
+                <button onclick="signin()">Submit</button>
+            </div>
+    </div>
+    <div id="UserSection" style="display: none;">
+        <div >
+            <div class="userinfo">
+                Welcome!, <div id="USERNAME"></div>
+            </div>
+            <div class="logout">
+            <button onclick="logout()">LogOut</button>
+            </div>
+        </div><br>
+        <div id="todos">
+            <div id="add_task_area">
+                <div class="todo">
+                <input type="number" placeholder="TaskNumber" id="tasknumber">
+                <input type="text" placeholder="Task Details" id="taskdetails">
+                <button onclick="add()">Add Task</button>
+            </div> <br>
+            <div id="clear" class="todo"><button onclick="clearall()" >All Task Done</button></div>
+            <br><br>
+        </div>
+    </div>    
+</body>
+</html>
