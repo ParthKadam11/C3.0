@@ -4,7 +4,7 @@ const app = express();
 const {UserModel,TodosModel}=require("./db");
 const {auth,JWT_SECRET}=require("./auth");
 const mongoose=require("mongoose")
-
+const dotenv=require('dotenv').config();
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
@@ -37,7 +37,6 @@ app.post("/todo",auth,async function(req,res){
 res.json({ message: "Todo created" });
 
 })
-
 app.post("/signup",async function(req,res){
     const email=req.body.email;
     const password=req.body.password
@@ -65,7 +64,7 @@ app.post("/signin",async function(req,res){
     if(user){
         const token=jwt.sign({
             id:user._id.toString()
-        },JWT_SECRET)
+        },process.env.JWT_SECRET)
         res.json({
             message:token
         })
@@ -75,4 +74,3 @@ app.post("/signin",async function(req,res){
         })
     }
 });   
-
