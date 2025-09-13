@@ -6,7 +6,7 @@ const {auth,JWT_SECRET}=require("./auth");
 const mongoose=require("mongoose")
 
 
-mongoose.connect("mongodb+srv://admin:Parth123123@cluster0.o7robcx.mongodb.net/TodoDB")
+mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log("Connected to MongoDB");
         // Start server only after a successful database connection
@@ -75,3 +75,4 @@ app.post("/signin",async function(req,res){
         })
     }
 });   
+
