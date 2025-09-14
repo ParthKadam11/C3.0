@@ -9,7 +9,6 @@ const dotenv=require('dotenv').config();
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log("Connected to MongoDB");
-        // Start server only after a successful database connection
         app.listen(3000, () => {
             console.log("Server listening on port 3000");
         });
@@ -74,3 +73,4 @@ app.post("/signin",async function(req,res){
         })
     }
 });   
+
