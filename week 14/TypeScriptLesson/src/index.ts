@@ -1,3 +1,4 @@
+/*
 //Greet User
 function greet(firstNames: string | number){
     console.log(`Hello,${firstNames}`)
@@ -29,3 +30,22 @@ function print(){
 console.log("Function Called")
 }
 OneSec(print)
+*/
+//getting user object as a input 
+function greeting(user:{
+    name:String,
+    age:number
+}){
+    console.log("Hello "+user.name)
+}
+greeting({
+    name:"Parth",
+    age:20
+})
+
+let firstname:String="Parth"
+let age:number=20
+
+let user:{
+    firstname:string
+}
