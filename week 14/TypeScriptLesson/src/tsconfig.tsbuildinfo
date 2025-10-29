@@ -1,1 +1,1 @@
-{"root":["./index.ts","./types.ts"],"errors":true,"version":"5.9.3"}
+{"root":["./index.ts","./random.ts","./types.ts","./oops/oops.ts"],"errors":true,"version":"5.9.3"}
